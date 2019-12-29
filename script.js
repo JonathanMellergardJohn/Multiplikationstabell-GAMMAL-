@@ -1,3 +1,5 @@
+// let multiTable = [];
+// let multiProducts = [];
 let answer = 0;
 let guess = 0;
 let answeredQuestions = 0;
@@ -6,13 +8,19 @@ let input = document.querySelector('.guessField');
 let tables = [];
 
 function fillTables(){
-
-  tables.push(getTableValues(6, 2));
-  tables.push(getTableValues(6, 3));
-  tables.push(getTableValues(6, 4));
-  tables.push(getTableValues(6, 5));
-  tables.push(getTableValues(6, 6));
-  tables.push(getTableValues(6, 7));
+// //  for (factor1 = 2; factor1 < 10; factor1++){
+//     for (factor2 = 2; factor2 < 10; factor2++){
+//       multiTable.push(factor1 + ' * ' + factor2 + ' = ');
+//       multiProducts.push(factor1*factor2);
+//     }
+//     factor2 = 2;
+//   }
+tables.push(getTableValues(6, 2));
+tables.push(getTableValues(6, 3));
+tables.push(getTableValues(6, 4));
+tables.push(getTableValues(6, 5));
+tables.push(getTableValues(6, 6));
+tables.push(getTableValues(6, 7));
 }
 
 function selectQuestion(){
@@ -23,12 +31,32 @@ function selectQuestion(){
     let question = table.table + ' * ' + table.tableNumbers[tableNumberIndex] + ' = ';
     document.querySelector('.questionField').innerHTML = question;
     document.querySelector('.guessField').focus();
+    // debugger;
+    // question = multiTable[selector];
+    // answer = multiProducts[selector];
+    // multiTable.splice(selector, 1);
+    // multiProducts.splice(selector, 1);
     answeredQuestions++;
     document.querySelector('.guessField').value ='';
   } else {
     document.querySelector('.guessCorrectionMessage').innerHTML = "Färdig med diagnos! Du fick " + wrongAnswersCount + " fel."
   }
+
 }
+
+//function displayQuestion(hejsvej) {
+  //document.querySelector('.questionField').innerHTML = hejsvej;
+  //document.querySelector('.guessField').focus();
+//}
+
+//function checkGuess() {
+//  guess = Number(document.querySelector('.guessField').value);
+//  answer = 
+//    if (guess !== answer) {
+//      wrongAnswersCount++;
+//      console.log(wrongAnswersCount)
+//    }
+//}
 
 function startTest() {
   selectQuestion();
@@ -39,6 +67,7 @@ function continueTest() {
   checkGuess();
   selectQuestion();
   displayQuestion();
+  
 }
 
 input.addEventListener('keyup',function(e){
@@ -55,6 +84,7 @@ function getTableValues(numberOfValues, table) {
   let returnObject = {
     table : table,
     tableNumbers : []
+    // a: [{number: 1, answer: 4}]
   };
 
   function getValue() {
@@ -69,6 +99,7 @@ function getTableValues(numberOfValues, table) {
   }
 
   for (let index = 0; index < numberOfValues; index++) {
+    // getValue(); 
     returnObject.tableNumbers.push(getValue());
   }
 
