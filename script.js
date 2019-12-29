@@ -16,7 +16,7 @@ function fillTables(){
 }
 
 function selectQuestion(){
-  if (answeredQuestions < 36){
+  if (answeredQuestions < 10){
     let tableIndex = getRandomNumber(0, 5);
     let tableNumberIndex = getRandomNumber(0, 5);
     let table = tables[tableIndex];
